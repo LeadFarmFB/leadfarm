@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadFarm | Premium Agency Ad Accounts</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131a2e;
+            --primary-color: #00ff66;
+            --primary-glow: rgba(0, 255, 102, 0.4);
+            --text-color: #ffffff;
+            --text-muted: #8fa0dd;
+            --danger-color: #ff3b30;
+            --telegram-color: #24A1DE;
+            --whatsapp-color: #25D366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 102, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 90% 45%, rgba(0, 102, 255, 0.12) 0%, transparent 45%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%2300ff66' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3Ccircle cx='10' cy='15' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M 0,120 Q 350,60 700,180 T 1400,120' fill='none' stroke='%2300ff66' stroke-opacity='0.03' stroke-width='2'/%3E%3Cpath d='M 0,250 Q 450,300 900,180 T 1800,250' fill='none' stroke='%230066ff' stroke-opacity='0.02' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--text-color); 
+            line-height: 1.6; 
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 26px; font-weight: 800; }
+        .logo span { color: var(--primary-color); text-shadow: 0 0 10px var(--primary-glow); }
+        
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-switch { display: flex; gap: 5px; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .lang-btn { background: transparent; border: none; color: var(--text-muted); padding: 5px 10px; font-weight: 700; font-size: 13px; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
+        .lang-btn.active { background: var(--primary-color); color: #000; box-shadow: 0 0 10px rgba(0, 255, 102, 0.3); }
+        
+        .hero { padding: 70px 0; }
+        .hero-flex { display: flex; align-items: center; gap: 50px; }
+        .hero-text { flex: 1; }
+        .hero-image-container { flex: 1; text-align: center; }
+        
+        .hero-img { width: 100%; max-width: 450px; border-radius: 16px; border: 1px solid rgba(0, 255, 102, 0.25); box-shadow: 0 0 30px rgba(0, 255, 102, 0.25); transition: transform 0.3s ease; }
+        .hero-img:hover { transform: scale(1.02); }
+        
+        h1 { font-size: 44px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        h1 span { color: var(--primary-color); text-shadow: 0 0 15px rgba(0, 255, 102, 0.3); }
+        .hero p { font-size: 18px; color: var(--text-muted); margin-bottom: 35px; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .btn-tg { background-color: var(--telegram-color); color: white; }
+        .btn-wa { background-color: var(--whatsapp-color); color: white; }
+        
+        section { padding: 60px 0; }
+        .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+        .section-title span { color: var(--primary-color); text-shadow: 0 0 10px var(--primary-glow); }
+        
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background-color: var(--card-bg); padding: 35px 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.03); backdrop-filter: blur(5px); }
+        .card h3 { margin-bottom: 10px; font-size: 22px; }
+        .table-container { width: 100%; overflow-x: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        table { width: 100%; border-collapse: collapse; background-color: var(--card-bg); min-width: 600px; }
+        th, td { padding: 15px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); text-align: left; }
+        th { background-color: rgba(0, 0, 0, 0.2); }
+        .td-danger { color: var(--danger-color); font-weight: 600; }
+        .td-success { color: var(--primary-color); font-weight: 600; }
+        
+        .infra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .infra-item { background: rgba(255,255,255,0.02); border-left: 3px solid var(--primary-color); padding: 20px; border-radius: 0 8px 8px 0; border: 1px solid rgba(255,255,255,0.01); border-left: 3px solid var(--primary-color); }
+        .infra-item h4 { margin-bottom: 5px; }
+
+        .pricing-block { 
+            background: linear-gradient(135deg, #131a2e 0%, #0f1626 100%); 
+            border: 2px solid var(--primary-color); 
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.2);
+            padding: 40px; 
+            border-radius: 16px; 
+            text-align: center; 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+        .price-tag { font-size: 54px; font-weight: 800; color: var(--primary-color); margin: 15px 0; text-shadow: 0 0 20px rgba(0, 255, 102, 0.4); }
+        .pricing-block h3 { font-size: 24px; }
+        .pricing-block ul { text-align: left; max-width: 420px; margin: 20px auto; list-style: none; }
+        .pricing-block ul li { margin-bottom: 10px; color: var(--text-muted); padding-left: 25px; position: relative; }
+        .pricing-block ul li::before { content: "✓"; position: absolute; left: 0; color: var(--primary-color); font-weight: bold; }
+        
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; text-align: center; }
+        .step-num { width: 45px; height: 45px; background: var(--primary-color); color: #000; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50px; margin: 0 auto 15px auto; box-shadow: 0 0 10px var(--primary-color); }
+        .prev-step h4 { font-size: 18px; margin-bottom: 5px; }
+
+        .payments { text-align: center; padding: 40px 0; background-color: rgba(255, 255, 255, 0.02); backdrop-filter: blur(5px); }
+        .payment-list { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+        .payment-list span { background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 6px; font-weight: 600; border: 1px solid rgba(255,255,255,0.03); color: #fff; }
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        @media (max-width: 968px) { 
+            .hero-flex { flex-direction: column; text-align: center; } 
+            .btn-group { justify-content: center; } 
+            h1 { font-size: 34px; } 
+            .header-flex { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">Lead<span>Farm</span></div>
+            <div class="header-right">
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLanguage('ua')">UA</button>
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                </div>
+                <a href="https://t.me/LeadFarm_Manager" target="_blank" class="btn btn-tg data-lang" data-ua="Контакт з менеджером" data-en="Contact Manager" style="padding: 8px 16px; font-size: 14px;">Контакт з менеджером</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-flex">
+                <div class="hero-text">
+                    <h1 class="data-lang" data-ua="Масштабуйте рекламні кампанії <br><span>Без банів та лімітів</span>" data-en="Scale Your Ad Campaigns <br><span>Without Bans & Limits</span>">Масштабуйте рекламні кампанії <br><span>Без банів та лімітів</span></h1>
+                    <p class="data-lang" data-ua="Досить боротися з автоматичними обмеженнями. LeadFarm надає преміальні агентські акаунти з високим спендом для Facebook, Google Ads та TikTok. Створено для професійних медіабаєрів та команд, які сильно масштабуються." data-en="Stop fighting automated restrictions. LeadFarm provides high-spending, premium agency ad accounts for Facebook, Google Ads, and TikTok. Built for professional media buyers and teams who scale hard.">Досить боротися з автоматичними обмеженнями. LeadFarm надає преміальні агентські акаунти з високим спендом для Facebook, Google Ads та TikTok. Створено для професійних медіабаєрів та команд, які сильно масштабуються.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/LeadFarm_Manager" target="_blank" class="btn btn-tg data-lang" data-ua="Отримати акаунти через Telegram" data-en="Get Accounts via Telegram">Отримати акаунти через Telegram</a>
+                        <a href="https://wa.me/qr/ENWQ524LLRRPD1" target="_blank" class="btn btn-wa data-lang" data-ua="Зв'язатися в WhatsApp" data-en="Contact on WhatsApp">Зв'язатися в WhatsApp</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500&auto=format&fit=crop" alt="LeadFarm Dashboard" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <h2 class="section-title data-lang" data-ua="Платформи, які ми <span>надаємо</span>" data-en="Platforms We <span>Provide</span>">Платформи, які ми <span>надаємо</span></h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="data-lang" data-ua="Facebook Агентства" data-en="Facebook Agency">Facebook Агентства</h3>
+                    <p class="data-lang" data-ua="Безлімітний щоденний спенд, високий траст, прогріта історія. Ідеально для агресивного вертикального масштабування." data-en="Unlimited daily spend, strong trust scores, pre-warmed history. Perfect for aggressive vertical scaling.">Безлімітний щоденний спенд, високий траст, прогріта історія. Ідеально для агресивного вертикального масштабування.</p>
+                </div>
+                <div class="card">
+                    <h3>Google Ads Invoice</h3>
+                    <p class="data-lang" data-ua="Пошук, YouTube та GDN. Плавне машинне навчання з пріоритетною модерацією та відсутністю миттєвих тригерів на холд." data-en="Search, YouTube, and GDN. Smooth machine learning with priority moderation and no instant hold triggers.">Пошук, YouTube та GDN. Плавне машинне навчання з пріоритетною модерацією та відсутністю миттєвих тригерів на холд.</p>
+                </div>
+                <div class="card">
+                    <h3 class="data-lang" data-ua="TikTok Агентства" data-en="TikTok Agency">TikTok Агентства</h3>
+                    <p class="data-lang" data-ua="Функції глобального таргету, ексклюзивні вайтлісти та сприятливе для обмежень середовище для швидкої оптимізації." data-en="Global targeting features, exclusive whitelists, and restriction-friendly environments for rapid optimization.">Функції глобального таргету, ексклюзивні вайтлісти та сприятливе для обмежень середовище для швидкої оптимізації.</p>
+                </div>
+            </div>
+            <div style="margin-top: 30px; text-align: center; color: var(--text-muted); font-weight: 500;" class="data-lang" data-ua="🔥 Підтримувані ніші: <span style='color:#fff;'>White Hat / Grey Hat / Black Hat / Crypto / Gambling / Nutra</span>" data-en="🔥 Supported Niches: <span style='color:#fff;'>White Hat / Grey Hat / Black Hat / Crypto / Gambling / Nutra</span>">
+                🔥 Підтримувані ніші: <span style="color:#fff;">White Hat / Grey Hat / Black Hat / Crypto / Gambling / Nutra</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title data-lang" data-ua="Чому варто обрати акаунти <span>LeadFarm?</span>" data-en="Why Use <span>LeadFarm Accounts?</span>">Чому варто обрати акаунти <span>LeadFarm?</span></h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="data-lang" data-ua="Функція" data-en="Feature">Функція</th>
+                            <th class="data-lang" data-ua="Звичайні акаунти (Самореги)" data-en="Regular Accounts (Self-regs)">Звичайні акаунти (Самореги)</th>
+                            <th class="data-lang" data-ua="Агентські акаунти LeadFarm" data-en="LeadFarm Agency Accounts">Агентські акаунти LeadFarm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="data-lang" data-ua="Ліміти щоденного спенду" data-en="Daily Spend Limits">Ліміти щоденного спенду</td>
+                            <td class="td-danger data-lang" data-ua="Суворі обмеження ($25 - $50 на день)" data-en="Strictly capped ($25 - $50 daily)">Суворі обмеження ($25 - $50 на день)</td>
+                            <td class="td-success data-lang" data-ua="Безліміт / Історія високого спенду" data-en="Unlimited / High Spend History">Безліміт / Історія високого спенду</td>
+                        </tr>
+                        <tr>
+                            <td class="data-lang" data-ua="Швидкість перевірки реклами" data-en="Ad Review Speed">Швидкість перевірки реклами</td>
+                            <td class="td-danger data-lang" data-ua="Тривалі ручні затримки та часті бани" data-en="Long manual delays & high bans">Тривалі ручні затримки та часті бани</td>
+                            <td class="td-success data-lang" data-ua="Пріоритетна лінія автоматичної перевірки" data-en="Priority automated review line">Пріоритетна лінія автоматичної перевірки</td>
+                        </tr>
+                        <tr>
+                            <td class="data-lang" data-ua="У разі бану" data-en="In Case of Ban">У разі бану</td>
+                            <td class="td-danger data-lang" data-ua="Кошти блокуються назавжди" data-en="Funds are locked forever">Кошти блокуються назавжди</td>
+                            <td class="td-success data-lang" data-ua="Миттєва безкоштовна заміна + перенесення балансу" data-en="Instant free replacement + balance transfer">Миттєва безкоштовна заміна + перенесення балансу</td>
+                        </tr>
+                        <tr>
+                            <td class="data-lang" data-ua="Налаштування інфраструктури" data-en="Infrastructure Setup">Налаштування інфраструктури</td>
+                            <td class="td-danger data-lang" data-ua="Купуєте проксі, карти, профілі самостійно" data-en="Buy proxies, cards, profiles yourself">Купуєте проксі, карти, профілі самостійно</td>
+                            <td class="td-success data-lang" data-ua="Повністю готова чиста інфраструктура (VPS/AdsPower)" data-en="Fully provided clean setup (VPS/AdsPower)">Повністю готова чиста інфраструктура (VPS/AdsPower)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <h2 class="section-title data-lang" data-ua="Повна рекламна інфраструктура <span>Включена</span>" data-en="Full Ad Infrastructure <span>Included</span>">Повна рекламна інфраструктура <span>Включена</span></h2>
+            <div class="infra-grid">
+                <div class="infra-item">
+                    <h4 class="data-lang" data-ua="Антидетект-середовище" data-en="Anti-Detect Environment">Антидетект-середовище</h4>
+                    <p class="data-lang" data-ua="Чисті профілі, оптимізовані під браузери AdsPower / Multilogin." data-en="Clean profiles tailored for AdsPower / Multilogin browsers.">Чисті профілі, оптимізовані під браузери AdsPower / Multilogin.</p>
+                </div>
+                <div class="infra-item">
+                    <h4 class="data-lang" data-ua="Преміальні резидентські проксі" data-en="Premium Residential Proxies">Преміальні резидентські проксі</h4>
+                    <p class="data-lang" data-ua="Трастові, чисті проксі, що точно відповідають геолокації акаунта." data-en="Untainted, high-purity proxies matching account geolocations.">Трастові, чисті проксі, що точно відповідають геолокації акаунта.</p>
+                </div>
+                <div class="infra-item">
+                    <h4 class="data-lang" data-ua="Надійні платіжні картки" data-en="Trusted Payment Cards">Надійні платіжні картки</h4>
+                    <p class="data-lang" data-ua="Прив'язані комерційні банківські картки, готові до великих біллінгів." data-en="Pre-linked commercial banking cards ready to handle massive billing.">Прив'язані комерційні банківські картки, готові до великих біллінгів.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="pricing-block">
+                <h3 class="data-lang" data-ua="Наша фіксована комісія" data-en="Our Flat Service Fee">Наша фіксована комісія</h3>
+                <div class="price-tag">13% - 15%</div>
+                <p class="data-lang" data-ua="Розраховується на основі вашого місячного обсягу бюджету" data-en="Calculated based on your monthly budget volume" style="color: var(--text-muted);">Розраховується на основі вашого місячного обсягу бюджету</p>
+                <ul>
+                    <li class="data-lang" data-ua="Жодних прихованих платежів, щомісячної оренди чи комісій за картки" data-en="No hidden setups, monthly rentals, or hidden card fees">Жодних прихованих платежів, щомісячної оренди чи комісій за картки</li>
+                    <li class="data-lang" data-ua="Структура з 0% ПДВ на всіх каналах" data-en="Zero % VAT structure on all channels">Структура з 0% ПДВ на всіх каналах</li>
+                </ul>
+                <div class="btn-group" style="justify-content: center; margin-top: 20px;">
+                    <a href="https://t.me/LeadFarm_Manager" target="_blank" class="btn btn-tg data-lang" data-ua="Орендувати через Telegram" data-en="Rent via Telegram">Орендувати через Telegram</a>
+                    <a href="https://wa.me/qr/ENWQ524LLRRPD1" target="_blank" class="btn btn-wa data-lang" data-ua="Орендувати через WhatsApp" data-en="Rent via WhatsApp">Орендувати через WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <h2 class="section-title data-lang" data-ua="Як <span>Почати?</span>" data-en="How to <span>Get Started</span>">Як <span>Почати?</span></h2>
+            <div class="process-grid">
+                <div class="prev-step">
+                    <div class="step-num">1</div>
+                    <h4 class="data-lang" data-ua="Подати нішу" data-en="Submit Niche">Подати нішу</h4>
+                    <p style="color: var(--text-muted); font-size:14px;" class="data-lang" data-ua="Зв'яжіться з нами в TG/WA та вкажіть ваші цілі." data-en="Contact us on TG and specify your targets.">Зв'яжіться з нами в TG/WA та вкажіть ваші цілі.</p>
+                </div>
+                <div class="prev-step">
+                    <div class="step-num">2</div>
+                    <h4 class="data-lang" data-ua="Верифікація" data-en="Verification">Верифікація</h4>
+                    <p style="color: var(--text-muted); font-size:14px;" class="data-lang" data-ua="Ми готуємо профілі та демонструємо вам налаштування." data-en="We prepare profiles and show you the setup.">Ми готуємо профілі та демонструємо вам налаштування.</p>
+                </div>
+                <div class="prev-step">
+                    <div class="step-num">3</div>
+                    <h4 class="data-lang" data-ua="Поповнення" data-en="Top-up">Поповнення</h4>
+                    <p style="color: var(--text-muted); font-size:14px;" class="data-lang" data-ua="Переказуєте бюджет + комісію та отримуєте доступ за 10 хвилин." data-en="Transfer budget + fee and get access in 10 mins.">Переказуєте budget + fee та отримуєте доступ за 10 хвилин.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="payments">
+        <div class="container">
+            <p style="color: var(--text-muted); font-weight: 600;" class="data-lang" data-ua="Приймаємо оплату в криптовалюті" data-en="Crypto Payments Accepted">Приймаємо оплату в криптовалюті</p>
+            <div class="payment-list">
+                <span>Binance Pay</span>
+                <span>Bybit Pay</span>
+                <span>USDT (TRC-20)</span>
+                <span>USDT (ERC-20)</span>
+                <span>BTC</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2019 LeadFarm. <span class="data-lang" data-ua="Усі права захищені." data-en="All rights reserved.">Усі права захищені.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.data-lang').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    element.innerHTML = text;
+                }
+            });
+
+            localStorage.setItem('selectedLang', lang);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLang') || 'ua';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
